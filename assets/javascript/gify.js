@@ -17,8 +17,9 @@ function populateButtons(searchArray,classToAdd,areaToAddTo){
 }
 
 $(document).on('click','.searchButton',function(){
+	$('#searches').empty();
 	var type = $(this).data('type');
-	var queryURL = 'http://pi.giphy.com/v1/gifs/search?q='+type+'&api_key=8a116063e5e34a8e99f1e25a1e605d14&limit=10';
+	var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=3e7a8938a6a944138fb85ea0074d5e36&q='+type+'&limit=25&offset=0&rating=G&lang=en'
 	$.ajax({url:queryURL,method:'GET'})
 	.done(function(response){
 		for(var i=0;i<response.data.length;i++){
